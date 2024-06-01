@@ -1,0 +1,32 @@
+---
+import ThemeIcon from "./ThemeIcon.astro";
+---
+<nav id="menu-list" class="fixed w-full flex flex-col items-end left-full transition ease-out duration-500">
+    <ul class="w-3/4 p-3 bg-surface-100 dark:bg-surface-900">
+        <li class="flex flex-row w-full  bg-surface-200 dark:bg-surface-800 items-center justify-between">
+            <span>Theme</span>
+            <ThemeIcon></ThemeIcon>
+        </li>
+        <li class="h-10 content-center bg-surface-200 dark:bg-surface-800">
+            Categories:
+        </li>
+        <a href="">
+            <li class="h-10 px-3 content-center bg-surface-200 dark:bg-surface-800">
+                Sample 1
+            </li>
+        </a>
+        <a href="">
+            <li class="h-10 px-3 content-center bg-surface-200 dark:bg-surface-800">
+                Sample 2
+            </li>
+        </a>
+    </ul>
+</nav>
+
+<script is:inline>
+    const showMenu = () => {
+        const element = document.getElementById("menu-list");
+        element.classList.toggle("-translate-x-full");
+    }
+    document.getElementById("menu-hamburger").addEventListener("click", showMenu);
+</script>
