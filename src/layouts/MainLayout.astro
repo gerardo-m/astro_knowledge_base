@@ -1,0 +1,28 @@
+---
+import "../scripts/darkmode";
+import ThemeIcon from '../components/ThemeIcon.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Wiki</title>
+</head>
+<body class="bg-white dark:bg-black text-black dark:text-white">
+    <h1 class="text-2xl">Astro Wiki</h1>
+    <script is:inline src="/pagefind/pagefind-ui.js"></script>
+
+    <ThemeIcon></ThemeIcon>
+  
+    <div id="search"></div>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            new PagefindUI({ element: "#search", showSubResults: true });
+        });
+    </script>
+    <slot></slot>
+</body>
+</html>
