@@ -1,6 +1,6 @@
 ---
-title: 'My First Article'
-pubDate: 2024-07-01
+title: 'First Article'
+pubDate: 2024-05-31
 description: 'This is a sample Article.'
 author: 'Gerardo Miranda'
 image:

@@ -15,5 +15,5 @@ const articlesCollection = defineCollection({
     })
 });
 export const collections = {
-  posts: articlesCollection,
+  articles: articlesCollection,
 };
