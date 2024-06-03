@@ -16,15 +16,19 @@ export default {
 					'800': '#1c58b1',
 					'900': '#1b4885',
 					'950': '#162e55',
+					'light': '#1a6ddb',
+					'dark': '#91d7ff',
 				},
 				'secondary': {
 					'50': '#fffdea',
 					'100': '#fff8c4',
 					'200': '#fff184',
+					'light': '#fff184',
 					'300': '#ffe244',
 					'400': '#ffd019',
 					'500': '#ffaf00',
 					'600': '#e48400',
+					'dark': '#b95a00',
 					'700': '#b95a00',
 					'800': '#994607',
 					'900': '#7e3909',
@@ -66,6 +70,8 @@ export default {
 			}
 		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography'),
+	],
 	darkMode: 'selector'
 }

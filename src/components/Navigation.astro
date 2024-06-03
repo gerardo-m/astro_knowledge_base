@@ -5,8 +5,8 @@ const pages = await Astro.glob("../pages/*.astro");
 const firstPages = ["index", "categories"];
 const otherPages = pages.filter((page) => !firstPages.includes(page.default.name));
 ---
-<nav id="menu-list" class="fixed w-full flex flex-col items-end left-full transition ease-out duration-500">
-    <ul class="w-3/4 p-3 bg-surface-100 dark:bg-surface-900">
+<nav id="menu-list" class="fixed w-full h-full flex flex-col items-end left-full transition ease-out duration-500 z-20">
+    <ul class="w-3/4 p-3 bg-surface-200 dark:bg-surface-800">
         <PageLink url="/" name="Index"></PageLink>
         <PageLink url="/categories" name="Categories"></PageLink>
         {
@@ -14,7 +14,7 @@ const otherPages = pages.filter((page) => !firstPages.includes(page.default.name
                 return <PageLink url={page.url + "/"} name={page.default.name}></PageLink>
             })
         }
-        <li class="flex flex-row w-full  bg-surface-200 dark:bg-surface-800 items-center justify-between">
+        <li class="flex flex-row w-full  items-center justify-between z-30">
             <span>Theme</span>
             <ThemeIcon></ThemeIcon>
         </li>
@@ -23,8 +23,26 @@ const otherPages = pages.filter((page) => !firstPages.includes(page.default.name
 
 <script is:inline>
     const showMenu = () => {
+        const modalBg = document.getElementById("content-modal");
         const element = document.getElementById("menu-list");
+        const menuHamburger = document.getElementById("menu-hamburger");
         element.classList.toggle("-translate-x-full");
+        modalBg.classList.toggle("hidden");
+        menuHamburger.classList.toggle("fill-txt-light");
+        menuHamburger.classList.toggle("dark:fill-txt-dark");
+        menuHamburger.classList.toggle("fill-secondary-dark");
+        menuHamburger.classList.toggle("dark:fill-secondary-light");
+    }
+    const hideMenu = () => {
+        const element = document.getElementById("menu-list");
+        const modalBg = document.getElementById("content-modal");
+        const menuHamburger = document.getElementById("menu-hamburger");
+        element.classList.remove("-translate-x-full");
+        modalBg.classList.add("hidden");
+        menuHamburger.classList.add("fill-txt-light", "dark:fill-txt-dark")
+        menuHamburger.classList.remove("fill-secondary-dark", "dark:fill-secondary-light")
+        
     }
     document.getElementById("menu-hamburger").addEventListener("click", showMenu);
+    document.getElementById("menu-list").addEventListener("click", hideMenu);
 </script>

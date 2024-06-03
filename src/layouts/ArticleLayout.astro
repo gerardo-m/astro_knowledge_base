@@ -1,10 +1,25 @@
 ---
 import MainLayout from "./MainLayout.astro";
 const { frontmatter } = Astro.props;
+var options = { year: 'numeric', month: 'short', day: '2-digit' };
+const fDate = frontmatter.pubDate.toLocaleDateString(undefined, options);
+const fUpdateDate = frontmatter.updateDate ? frontmatter.updateDate.toLocaleDateString(undefined, options) : undefined;
 ---
 <MainLayout pageTitle={frontmatter.title}>
-    <p>Published on: {frontmatter.pubDate.toString().slice(0,10)}</p>
-    <p>Written by {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-    <slot />
+    
+    <div class="flex flex-col p-5 gap-5">
+        <h2 class="text-2xl font-bold text-primary-light dark:text-primary-dark">{frontmatter.title}</h2>
+        <p class="text-sm">
+            Published on: <span class="text-secondary-dark dark:text-secondary-light">{fDate}</span> 
+            <br>
+            Written by <span class="text-secondary-dark dark:text-secondary-light">{frontmatter.author}</span>
+            { fUpdateDate == undefined ? "" : <br><span>Last updated on: <span class="text-secondary-dark dark:text-secondary-light">{fUpdateDate}</span></span> }
+        </p>
+        <img class="w-full" src={frontmatter.image.url} alt={frontmatter.image.alt} />
+        <div class="prose dark:prose-invert prose-sm prose-headings:mt-3.5 prose-headings:mb-1.5 prose-headings:text-primary-light dark:prose-headings:text-primary-dark">
+            <slot />
+        </div>
+        
+    </div>
+    
 </MainLayout>

@@ -1,19 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import MainLayout from "../layouts/MainLayout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 const allArticles = await getCollection("articles");
 const categories = [... new Set(allArticles.map((article) => article.data.categories).flat())];
 ---
 
-<MainLayout>
-    <div class="p-3">
-        <ul>
-            {categories.map((category) => {
-                return <li>
-                    <a href={`/categories/${category}`}>{category}</a>
-                </li>
-            })}
-        </ul>
-        
-    </div>
-</MainLayout>
+<PageLayout title="Categories">
+    <p>This categories are generated automatically from the categories of your articles:</p>
+    <ul class="underline underline-offset-4 pl-5 list-disc">
+        {categories.map((category) => {
+            return <li>
+                <a href={`/categories/${category}`}>{category}</a>
+            </li>
+        })}
+    </ul>
+</PageLayout>

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import MainLayout from "../../layouts/MainLayout.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
 export async function getStaticPaths(){
     const allArticles = await getCollection("articles");
     const categories = [... new Set(allArticles.map((article) => article.data.categories).flat())];
@@ -20,15 +20,12 @@ const {category} = Astro.params;
 const {articles} = Astro.props;
 ---
 
-<MainLayout>
-    <div class="p-3">
-        <h1>{category}</h1>
-        <ul>
-            {articles.map((article)=>{
-                return <li>
-                    <a href={`/articles/${article.slug}/`}>{article.data.title}</a>
-                </li>
-            })}
-        </ul>
-    </div>
-</MainLayout>
+<PageLayout title={`Category: ${category}`}>
+    <ul class="list-disc pl-5 underline underline-offset-4 text-lg">
+        {articles.map((article)=>{
+            return <li>
+                <a href={`/articles/${article.slug}/`}>{article.data.title}</a>
+            </li>
+        })}
+    </ul>
+</PageLayout>

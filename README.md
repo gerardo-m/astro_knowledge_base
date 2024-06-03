@@ -7,3 +7,5 @@ This needs to be reviewed and fixed
 - Run `npm run build` to build the pagefind static search
 - Now you can run `npm run dev` without errors
 
+# Usage
+

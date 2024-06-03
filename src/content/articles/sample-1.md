@@ -1,6 +1,7 @@
 ---
 title: 'First Article'
 pubDate: 2024-05-31
+#updateDate: 2024-05-31
 description: 'This is a sample Article.'
 author: 'Gerardo Miranda'
 image:

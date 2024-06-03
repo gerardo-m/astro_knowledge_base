@@ -1,9 +1,40 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import { getCollection } from "astro:content";
+const articlesToShow = 10;
+const allArticles = await getCollection("articles");
+const orderedArticles = allArticles.sort((a,b)=>{
+    const aDate = a.data.updateDate ?? a.data.pubDate;
+    const bDate = b.data.updateDate ?? b.data.pubDate;
+    return bDate.getTime() - aDate.getTime();
+}).slice(0, articlesToShow);
 ---
-<MainLayout>
-    <div class="p-3">
-        <h1>Welcome</h1>
-        <p>This is your index page</p>
+<PageLayout title="Welcome">
+    <div class="text-base">
+        <p class="leading-loose">
+            This is your index page.
+            <br>
+            Explore the other pages:
+        </p>
+        <ul class="pl-5 list-disc underline underline-offset-4">
+            <li>
+                <a href="/about/">About</a>
+            </li>
+            <li>
+                <a href="/categories/">Categories</a>
+            </li>
+        </ul>
     </div>
-</MainLayout>
+    <div>
+        <h2>Last updated articles:</h2>
+        <ul class="pl-5 list-disc underline underline-offset-4">
+            {orderedArticles.map((article)=>{
+                return <li>
+                    <a href={`/articles/${article.slug}/`}>{article.data.title}</a>
+                </li>
+            })}
+        </ul>
+    </div>
+    
+
+</PageLayout>

@@ -1,0 +1,27 @@
+html {
+    --pagefind-ui-primary: #1c58b1;
+    --pagefind-ui-text: #222125;
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-background: #f6f6f7;
+    --pagefind-ui-border: #bab7c2;
+    --pagefind-ui-tag: #bab7c2;
+    --pagefind-ui-border-width: 2px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-image-border-radius: 8px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pagefind-ui-font: sans-serif;
+}
+
+html.dark {
+    --pagefind-ui-primary: #5ebffc;
+    --pagefind-ui-text: #f6f6f7;
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-background: #222125;
+    --pagefind-ui-border: #57545b;
+    --pagefind-ui-tag: #57545b;
+    --pagefind-ui-border-width: 2px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-image-border-radius: 8px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pagefind-ui-font: sans-serif;
+}
