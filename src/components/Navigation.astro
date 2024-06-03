@@ -5,8 +5,11 @@ const pages = await Astro.glob("../pages/*.astro");
 const firstPages = ["index", "categories"];
 const otherPages = pages.filter((page) => !firstPages.includes(page.default.name));
 ---
-<nav id="menu-list" class="fixed w-full h-full flex flex-col items-end left-full transition ease-out duration-500 z-20">
-    <ul class="w-3/4 p-3 bg-surface-200 dark:bg-surface-800">
+<nav id="menu-list" class="fixed size-full flex flex-col items-end left-full transition ease-out duration-500 z-20
+        sm:left-0 sm:relative mt-16">
+    <ul class="w-3/4 p-3 bg-primary-200 dark:bg-primary-800
+                sm:flex sm:flex-row sm:size-full sm:justify-around sm:py-0 sm:h-16 sm:px-6
+                md:text-lg lg:text-xl">
         <PageLink url="/" name="Index"></PageLink>
         <PageLink url="/categories" name="Categories"></PageLink>
         {
@@ -14,8 +17,9 @@ const otherPages = pages.filter((page) => !firstPages.includes(page.default.name
                 return <PageLink url={page.url + "/"} name={page.default.name}></PageLink>
             })
         }
-        <li class="flex flex-row w-full  items-center justify-between z-30">
-            <span>Theme</span>
+        <li class="flex flex-row w-full items-center justify-between z-30
+                    sm:w-auto sm:flex-grow sm:justify-end">
+            <span class="sm:hidden">Theme</span>
             <ThemeIcon></ThemeIcon>
         </li>
     </ul>

@@ -7,7 +7,10 @@ const defaultTitle = "New Page (Add title)"
 
 <MainLayout pageTitle={title}>
     <div class="flex flex-col gap-5 p-5">
-        <h2 class="text-xl font-bold text-primary-light dark:text-primary-dark">{title ?? defaultTitle}</h2>
-        <slot></slot>
+        <h2 class="text-2xl font-bold text-primary-light dark:text-primary-dark sm:text-3xl lg:text-4xl">{title ?? defaultTitle}</h2>
+        <div class="flex flex-col gap-5 text-base sm:text-lg">
+            <slot></slot>
+        </div>
+        
     </div>
 </MainLayout>

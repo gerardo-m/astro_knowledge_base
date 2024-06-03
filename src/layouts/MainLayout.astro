@@ -18,17 +18,21 @@ const {pageTitle} = Astro.props;
     <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
     <title data-pagefind-meta="title">{pageTitle}</title>
 </head>
-<body class="bg-surface-light dark:bg-surface-dark text-txt-light dark:text-txt-dark">
+<body class="bg-surface-light dark:bg-surface-dark text-txt-light dark:text-txt-dark flex flex-col items-center">
     <script is:inline src="/pagefind/pagefind-ui.js"></script>
-    <div id="page-modal" class="bg-surface-dark dark:bg-surface-950 opacity-50 z-10 fixed top-0 w-full h-full hidden"></div>
     <SearchDialog></SearchDialog>
     <Header></Header>
-    <Navigation></Navigation>
     
-    <div class="mt-16" data-pagefind-body>
-        <div id="content-modal" class="bg-surface-dark dark:bg-surface-950 opacity-50 z-10 fixed w-full h-full hidden"></div>
-        <slot></slot>
+    <div id="page-modal" class="bg-surface-dark dark:bg-surface-950 opacity-50 z-30 fixed top-0 w-full h-full hidden"></div>
+    <div class="w-full max-w-screen-xl">
+        <Navigation></Navigation>
+        <div class="mt-16 sm:px-8 sm:mt-8" data-pagefind-body>
+            <div id="content-modal" class="bg-surface-dark dark:bg-surface-950 opacity-50 z-10 fixed w-full h-full hidden"></div>
+            <slot></slot>
+        </div>
     </div>
+    
+    
     
 </body>
 </html>

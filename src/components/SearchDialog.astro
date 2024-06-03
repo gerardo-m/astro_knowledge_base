@@ -3,21 +3,27 @@
 ---
 
 <div id="search-dialog" class="hidden">
-    <div class="flex flex-col bg-surface-light dark:bg-surface-dark top-0 fixed size-full z-20 ">
-        <div class="flex flex-row items-center justify-between p-5 h-16">
-            <h2 class="text-2xl font-bold">Search</h2>
-            <svg id="close-search" class="w-5 fill-txt-light dark:fill-txt-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
-        </div>
-        <div id="search-div" class="p-10 text-txt-light dark:text-txt-dark overflow-scroll">
+    <div class="top-0 left-0 fixed size-full z-40 flex flex-col justify-center items-center">
+        <div class="size-full max-w-screen-xl sm:h-3/4 sm:p-10">
+            <div class="flex flex-col bg-surface-light dark:bg-surface-dark size-full
+                     sm:rounded-lg">
+                <div class="flex flex-row justify-between p-5 h-16">
+                    <h2 class="text-2xl font-bold">Search</h2>
+                    <svg id="close-search" class="w-5 fill-txt-light dark:fill-txt-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+                </div>
+                <div id="search-div" class="p-10 h-full text-txt-light dark:text-txt-dark overflow-auto">
+                </div>
+            </div>
         </div>
     </div>
-    
 </div>
 
 <script is:inline>
     const closeSearch = () =>{
         const dialog = document.getElementById("search-dialog");
+        const modal = document.getElementById("page-modal");
         dialog.classList.add("hidden");
+        modal.classList.add("hidden");
     }
 
     document.getElementById("close-search").addEventListener("click", closeSearch);
