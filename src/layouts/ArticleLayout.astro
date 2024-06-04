@@ -1,14 +1,16 @@
 ---
+import type { MarkdownHeading } from "astro";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import ContentTable from "../components/ContentTable.astro";
 import MainLayout from "./MainLayout.astro";
-const { frontmatter } = Astro.props;
+const { frontmatter, headings } = Astro.props;
 var options = { year: 'numeric', month: 'short', day: '2-digit' };
 const fDate = frontmatter.pubDate.toLocaleDateString(undefined, options);
 const fUpdateDate = frontmatter.updateDate ? frontmatter.updateDate.toLocaleDateString(undefined, options) : undefined;
 ---
 <MainLayout pageTitle={frontmatter.title}>
     <div class="flex flex-row">
-        <!-- <ContentTable></ContentTable> -->
+        <ContentTable headings={headings}></ContentTable>
         <div class="flex flex-col p-5 gap-5">
             <h2 class="text-2xl font-bold text-primary-light dark:text-primary-dark sm:text-3xl lg:text-4xl">{frontmatter.title}</h2>
             <p class="text-xs sm:text-sm lg:text-base">
