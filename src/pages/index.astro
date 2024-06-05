@@ -9,19 +9,32 @@ const orderedArticles = allArticles.sort((a,b)=>{
     return bDate.getTime() - aDate.getTime();
 }).slice(0, articlesToShow);
 ---
-<PageLayout title="Welcome">
+<PageLayout title="Index">
+    <h2 class="text-xl font-bold text-primary-light dark:text-primary-dark sm:text-2xl lg:text-3xl">Welcome</h2>
     <div class="">
         <p class="leading-loose">
             This is your index page.
             <br>
-            Explore the other pages:
+            Use this template as a starting point for building your knowledge base, docs or wiki.
+            <br>
+            You can rewrite this pages completely, but first please take a look at some features
+            provided by this template:
         </p>
-        <ul class="pl-5 list-disc underline underline-offset-4">
+        <ul class="pl-5 list-disc">
             <li>
-                <a href="/about/">About</a>
+                Completely static generated site
             </li>
             <li>
-                <a href="/categories/">Categories</a>
+                Static page search
+            </li>
+            <li>
+                Responsive design
+            </li>
+            <li>
+                Article's Layout with a functional Content Table
+            </li>
+            <li>
+                Color palettes with TailwindCss
             </li>
         </ul>
     </div>

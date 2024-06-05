@@ -25,3 +25,7 @@ html.dark {
     --pagefind-ui-image-box-ratio: 3 / 2;
     --pagefind-ui-font: sans-serif;
 }
+
+h1, h2, h3, h4, h5 {
+    scroll-margin-top: 15dvh;
+}

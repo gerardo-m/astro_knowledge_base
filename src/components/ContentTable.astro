@@ -3,24 +3,28 @@ import type { MarkdownHeading } from "astro";
 
 const { headings } = Astro.props;
 const h:MarkdownHeading[] = headings;
-const possiblePadding = ["pl-1", "pl-2", "pl-3", "pl-4", "pl-5"]
+const possiblePadding = ["pl-0", "pl-2", "pl-4", "pl-6", "pl-8"]
 var lvlPad = new Map();
 const levels = [... new Set(h.map((heading)=> heading.depth))].sort();
-console.log(levels);
 for (let index = 0; index < levels.length; index++) {
     const element = levels[index];
     lvlPad.set(element, possiblePadding[index]);
 }
 ---
 
-<div class="p-5 hidden w-1/6
-            lg:flex lg:flex-col">
-    Content table
-    <ul class="p-5">
+<div class="p-5 hidden w-1/5 h-[85dvh] text-secondary-dark dark:text-secondary-light text-base 
+            lg:sticky lg:top-[15dvh] lg:flex lg:flex-col lg:overflow-auto">
+    <span class="font-semibold">Content table</span>
+    <ul class="py-5 px-2">
+        <li class:list={[possiblePadding[0], "py-2"]}>
+            <a href="#" class="text-secondary-dark dark:text-secondary-light text-sm">
+                (Top)
+            </a>
+        </li>
         {h.map((heading) => {
-            return <li class:list={[lvlPad.get(heading.depth), "py-4"]}>
-                <a href={`#${heading.slug}`}>
-                    - {heading.text}
+            return <li class:list={[lvlPad.get(heading.depth), "py-2"]}> -
+                <a href={`#${heading.slug}`} class="text-secondary-dark dark:text-secondary-light hover:text-secondary-800 dark:hover:text-secondary-400 text-sm underline underline-offset-2">
+                    {heading.text}
                 </a>
                 
             </li>

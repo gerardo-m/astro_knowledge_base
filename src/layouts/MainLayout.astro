@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Navigation from "../components/Navigation.astro";
 import SearchDialog from '../components/SearchDialog.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const {pageTitle} = Astro.props;
@@ -15,23 +16,24 @@ const {pageTitle} = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <script src="../scripts/global.js"></script>
+    <script is:inline async defer src="https://buttons.github.io/buttons.js"></script>
     <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
     <title data-pagefind-meta="title">{pageTitle}</title>
 </head>
-<body class="bg-surface-light dark:bg-surface-dark text-txt-light dark:text-txt-dark flex flex-col items-center">
+<body class="bg-surface-light dark:bg-surface-dark text-txt-light dark:text-txt-dark flex flex-col items-center min-h-dvh">
     <script is:inline src="/pagefind/pagefind-ui.js"></script>
     <SearchDialog></SearchDialog>
     <Header></Header>
     
-    <div id="page-modal" class="bg-surface-dark dark:bg-surface-950 opacity-50 z-30 fixed top-0 w-full h-full hidden"></div>
-    <div class="w-full max-w-screen-xl">
+    <div id="page-modal" class="bg-surface-dark dark:bg-surface-950 opacity-50 z-40 fixed top-0 w-full h-full hidden"></div>
+    <div class="w-full max-w-screen-xl grow">
         <Navigation></Navigation>
         <div class="mt-16 sm:px-8 sm:mt-8" data-pagefind-body>
             <div id="content-modal" class="bg-surface-dark dark:bg-surface-950 opacity-50 z-10 fixed w-full h-full hidden"></div>
             <slot></slot>
         </div>
     </div>
-    
+    <Footer></Footer>
     
     
 </body>

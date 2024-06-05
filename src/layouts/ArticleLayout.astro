@@ -11,7 +11,7 @@ const fUpdateDate = frontmatter.updateDate ? frontmatter.updateDate.toLocaleDate
 <MainLayout pageTitle={frontmatter.title}>
     <div class="flex flex-row">
         <ContentTable headings={headings}></ContentTable>
-        <div class="flex flex-col p-5 gap-5">
+        <div class="flex flex-col p-5 gap-5 w-full">
             <h2 class="text-2xl font-bold text-primary-light dark:text-primary-dark sm:text-3xl lg:text-4xl">{frontmatter.title}</h2>
             <p class="text-xs sm:text-sm lg:text-base">
                 Published on: <span class="text-secondary-dark dark:text-secondary-light">{fDate}</span> 
@@ -20,7 +20,7 @@ const fUpdateDate = frontmatter.updateDate ? frontmatter.updateDate.toLocaleDate
                 { fUpdateDate == undefined ? "" : <br><span>Last updated on: <span class="text-secondary-dark dark:text-secondary-light">{fUpdateDate}</span></span> }
             </p>
             <img class="w-full" src={frontmatter.image.url} alt={frontmatter.image.alt} />
-            <div class="prose dark:prose-invert prose-sm prose-headings:mt-3.5 prose-headings:mb-1.5 prose-headings:text-primary-light dark:prose-headings:text-primary-dark
+            <div class="prose dark:prose-invert prose-sm prose-headings:mt-3.5 prose-headings:mb-1.5 prose-headings:text-primary-light dark:prose-headings:text-primary-dark w-full max-w-fit px-5
                         sm:prose-base lg:prose-lg">
                 
                 <slot />
