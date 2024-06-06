@@ -1,6 +1,4 @@
 ---
-import type { MarkdownHeading } from "astro";
-import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import ContentTable from "../components/ContentTable.astro";
 import MainLayout from "./MainLayout.astro";
 const { frontmatter, headings } = Astro.props;
@@ -19,7 +17,8 @@ const fUpdateDate = frontmatter.updateDate ? frontmatter.updateDate.toLocaleDate
                 Written by <span class="text-secondary-dark dark:text-secondary-light">{frontmatter.author}</span>
                 { fUpdateDate == undefined ? "" : <br><span>Last updated on: <span class="text-secondary-dark dark:text-secondary-light">{fUpdateDate}</span></span> }
             </p>
-            <img class="w-full" src={frontmatter.image.url} alt={frontmatter.image.alt} />
+            { frontmatter.image == undefined ? "" : <img class="w-full" src={frontmatter.image.url} alt={frontmatter.image.alt} />}
+            
             <div class="prose dark:prose-invert prose-sm prose-headings:mt-3.5 prose-headings:mb-1.5 prose-headings:text-primary-light dark:prose-headings:text-primary-dark w-full max-w-fit px-5
                         sm:prose-base lg:prose-lg">
                 
